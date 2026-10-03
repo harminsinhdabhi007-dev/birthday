@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Georgia, serif;
+    color: white;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ff4f9a55, transparent 30%),
+        radial-gradient(circle at 80% 30%, #8b5cf655, transparent 30%),
+        linear-gradient(135deg, #090014, #21002f, #07000d);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+}
+
+/* PARTICLES */
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px white;
+
+    animation: particleMove linear infinite;
+}
+
+@keyframes particleMove {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* MAIN 3D CARD */
+
+.scene {
+    width: 92%;
+    max-width: 720px;
+
+    transform-style: preserve-3d;
+}
+
+.card {
+    position: relative;
+    padding: 45px 25px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.3);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 0 30px #ff149366,
+        0 30px 80px #000;
+
+    transform-style: preserve-3d;
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: rotateX(2deg) rotateY(-2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateX(-2deg) rotateY(2deg) translateY(-15px);
+    }
+}
+
+/* 3D HEART */
+
+.heart3d {
+    font-size: 85px;
+
+    filter:
+        drop-shadow(0 0 10px #ff1493)
+        drop-shadow(0 0 30px #ff1493);
+
+    animation: heartBeat 1.2s infinite;
+
+    transform: translateZ(70px);
+}
+
+@keyframes heartBeat {
+
+    0%,100% {
+        transform: translateZ(70px) scale(1);
+    }
+
+    50% {
+        transform: translateZ(100px) scale(1.25);
+    }
+}
+
+/* TITLE */
+
+h1 {
+    margin-top: 15px;
+
+    font-size: clamp(38px, 8vw, 65px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ff9dcc,
+        #fff
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: shine 3s linear infinite;
+
+    transform: translateZ(50px);
+}
+
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+.subtitle {
+    margin-top: 12px;
+
+    font-size: 25px;
+
+    color: #ffd6ed;
+
+    transform: translateZ(40px);
+}
+
+/* PHOTO */
+
+.photo {
+    width: 170px;
+    height: 170px;
+
+    margin: 30px auto;
+
+    border-radius: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 70px;
+
+    background:
+        linear-gradient(135deg,#ff69b4,#8b5cf6);
+
+    border: 5px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 0 25px #ff1493,
+        0 0 60px #8b5cf6;
+
+    transform: translateZ(80px);
+
+    animation: photoFloat 3s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+
+    0%,100% {
+        transform: translateZ(80px) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateZ(100px) rotateY(10deg);
+    }
+}
+
+/* TYPEWRITER */
+
+.typing {
+    min-height: 35px;
+
+    font-size: 20px;
+
+    color: #ffe8f5;
+
+    margin: 15px 0;
+}
+
+/* WISH */
+
+.wish {
+    max-width: 600px;
+
+    margin: auto;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    color: #fff4fa;
+
+    transform: translateZ(35px);
+}
+
+/* BUTTON */
+
+button {
+    margin-top: 30px;
+
+    padding: 15px 32px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(45deg,#ff1493,#8b5cf6);
+
+    box-shadow:
+        0 0 20px #ff1493aa;
+
+    transition: 0.3s;
+
+    transform: translateZ(70px);
+}
+
+button:hover {
+    transform:
+        translateZ(100px)
+        scale(1.08);
+
+    box-shadow:
+        0 0 40px #ff1493,
+        0 0 70px #8b5cf6;
+}
+
+/* SURPRISE */
+
+#surprise {
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid #ffffff44;
+
+    animation: reveal 1s ease;
+}
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#surprise h2 {
+    color: #ff9dcc;
+
+    margin-bottom: 15px;
+}
+
+#surprise p {
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation: floatHeart 7s linear infinite;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.5)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* FIREWORK */
+
+.firework {
+    position: fixed;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+
+    0% {
+        transform: scale(.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(12)
+            translate(
+                calc((var(--x)) * 1px),
+                calc((var(--y)) * 1px)
+            );
+
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 30px;
+
+    font-size: 14px;
+
+    color: #ffcce5;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .card {
+        padding: 35px 18px;
+    }
+
+    .heart3d {
+        font-size: 65px;
+    }
+
+    .wish {
+        font-size: 17px;
+    }
+
+    .photo {
+        width: 140px;
+        height: 140px;
+        font-size: 55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+
+<script>
+
+for(let i = 0; i < 45; i++){
+
+    let p = document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left = Math.random()*100 + "%";
+
+    p.style.animationDuration =
+        (4 + Math.random()*8) + "s";
+
+    p.style.animationDelay =
+        Math.random()*5 + "s";
+
+    document.body.appendChild(p);
+}
+
+</script>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="floating-heart" style="left:8%;animation-delay:0s;">❤️</div>
+<div class="floating-heart" style="left:25%;animation-delay:2s;">💖</div>
+<div class="floating-heart" style="left:45%;animation-delay:4s;">💕</div>
+<div class="floating-heart" style="left:65%;animation-delay:1s;">💗</div>
+<div class="floating-heart" style="left:85%;animation-delay:3s;">💝</div>
+
+
+<!-- MAIN -->
+
+<div class="scene">
+
+<div class="card">
+
+    <div class="heart3d">
+        ❤️
+    </div>
+
+    <h1>
+        Happy Birthday
+    </h1>
+
+    <div class="subtitle">
+        My Special Person 💕
+    </div>
+
+
+    <!-- PHOTO AREA -->
+
+    <div class="photo">
+        🎂
+    </div>
+
+
+    <!-- TYPING -->
+
+    <div class="typing" id="typing"></div>
+
+
+    <!-- WISH -->
+
+    <p class="wish">
+
+        Today is a very special day because
+        someone very special was born. ❤️
+
+        <br><br>
+
+        May your life always be filled with
+        happiness, success, beautiful memories
+        and endless reasons to smile. ✨
+
+        <br><br>
+
+        Keep shining, keep smiling,
+        and always stay amazing. 💖
+
+    </p>
+
+
+    <!-- SURPRISE BUTTON -->
+
+    <button onclick="openSurprise()">
+        🎁 Open My Surprise
+    </button>
+
+
+    <!-- SURPRISE MESSAGE -->
+
+    <div id="surprise">
+
+        <h2>
+            💖 A Special Message For You 💖
+        </h2>
+
+        <p>
+
+            Happy Birthday! 🎂✨
+
+            <br><br>
+
+            I hope this little website makes
+            your birthday a little more magical.
+
+            <br><br>
+
+            You deserve beautiful moments,
+            big dreams and lots of happiness.
+
+            <br><br>
+
+            🎉 Have an amazing birthday! 🎉
+
+            <br><br>
+
+            ❤️ Always Keep Smiling ❤️
+
+        </p>
+
+    </div>
+
+
+    <div class="footer">
+        Made with ❤️ for your special birthday
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* TYPING EFFECT */
+
+const text =
+"Today is your special day... ✨";
+
+let index = 0;
+
+function typeText(){
+
+    if(index < text.length){
+
+        document.getElementById("typing")
+        .innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeText,70);
+    }
+}
+
+typeText();
+
+
+/* SURPRISE */
+
+function openSurprise(){
+
+    document.getElementById("surprise")
+    .style.display = "block";
+
+    fireworks();
+
+    createHearts();
+
+}
+
+
+/* EXTRA HEARTS */
+
+function createHearts(){
+
+    for(let i=0;i<25;i++){
+
+        let heart =
+        document.createElement("div");
+
+        heart.className =
+        "floating-heart";
+
+        heart.innerHTML =
+        ["❤️","💖","💕","💗","💝"]
+        [Math.floor(Math.random()*5)];
+
+        heart.style.left =
+        Math.random()*100 + "%";
+
+        heart.style.animationDuration =
+        (3 + Math.random()*4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },7000);
+    }
+}
+
+
+/* FIREWORKS */
+
+function fireworks(){
+
+    for(let i=0;i<30;i++){
+
+        let f =
+        document.createElement("div");
+
+        f.className = "firework";
+
+        f.style.left =
+        (30 + Math.random()*40) + "%";
+
+        f.style.top =
+        (20 + Math.random()*30) + "%";
+
+        f.style.background =
+        ["#ff69b4","#ffd700","#ffffff","#8b5cf6"]
+        [Math.floor(Math.random()*4)];
+
+        f.style.setProperty(
+            "--x",
+            (Math.random()*300-150)
+        );
+
+        f.style.setProperty(
+            "--y",
+            (Math.random()*300-150)
+        );
+
+        document.body.appendChild(f);
+
+        setTimeout(()=>{
+            f.remove();
+        },1300);
+    }
+}
+
+</script>
+
+</body>
+</html>
